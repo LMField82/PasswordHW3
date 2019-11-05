@@ -8,29 +8,65 @@
     <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
-    <script type="text/javascript">
-    
+   <script>
     //variables
-    var lengthPass = prompt("Choose password length. Enter a number between 8 and 128, inclusive.");
-    var specialChar = confirm("Include special characters? Ok for yes, cancel for no.");
-    var includeNums = confirm("Include numbers? Ok for yes, cancel for no.");
-    var lowerCase = confirm("Include lowercase letters? Ok for yes, cancel for no.");
-    var upperCase = confirm("Include uppercase letters? Ok for yes, cancel for no.");
+    var lengthPass; 
+    var specialChar;
+    var includeNums;
+    var lowerCase; 
+    var upperCase;
     
     //conditionals
     //choosing the number of characters
-    do { 
-        lengthPass ();
+   do {
+    var lengthPass = prompt("Choose password length. Enter a number between 8 and 128, inclusive.");    
         if (lengthPass > 7 && lengthPass < 129) {
             alert("You chose " + lengthPass + " characters.");
         }
         else {
             alert("You must choose a password length between 8 and 128, inclusive.\nPlease choose again.");
         }
-    while (lengthPass < 8 || lengthPass > 128);
+   }
+   while (lengthPass < 8 || lengthPass > 128);
+//types of characters to include
+do {
+   alert("You must choose one or more of the following to include in your password:\nSpecial characters\nNumbers\nLowercase letters\nUppercase letters");
+   var specialChar = confirm("Include special characters? Ok for yes, cancel for no.");
+        if (specialChar) {
+            alert("You chose to include special characters.");
+        }
+        else {
+            alert("You chose not to include special characters.");
+        }
 
-    </script>
+   var includeNums = confirm("Include numbers? Ok for yes, cancel for no.");
+        if (includeNums) {
+            alert("You chose to include numbers.");
+        }
+        else {
+            alert("You chose not to include numbers.");
+        }
 
+    var lowerCase = confirm("Include lowercase letters? Ok for yes, cancel for no.");
+        if (lowerCase) {
+            alert("You chose to include lowercase letters.");
+        }
+        else {
+            alert("You chose not to include lowercase letters.");
+        }
+
+    var upperCase = confirm("Include uppercase letters? Ok for yes, cancel for no.");
+        if (upperCase) {
+            alert("You chose to include uppercase letters.");
+        }
+        else {
+            alert("You chose not to include uppercase letters.");
+        }
+}
+while (specialChar === false && includeNums === false && lowerCase === false && upperCase === false);
+    
+
+  </script>
     <h1>Password Generator</h1>
     <div class="containter">
         <div id="password">
