@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Password Generator</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+    <script type="text/javascript">
+    
+    //variables
+    var lengthPass = prompt("Choose password length. Enter a number between 8 and 128, inclusive.");
+    var specialChar = confirm("Include special characters? Ok for yes, cancel for no.");
+    var includeNums = confirm("Include numbers? Ok for yes, cancel for no.");
+    var lowerCase = confirm("Include lowercase letters? Ok for yes, cancel for no.");
+    var upperCase = confirm("Include uppercase letters? Ok for yes, cancel for no.");
+    
+    //conditionals
+    //choosing the number of characters
+    do { 
+        lengthPass ();
+        if (lengthPass > 7 && lengthPass < 129) {
+            alert("You chose " + lengthPass + " characters.");
+        }
+        else {
+            alert("You must choose a password length between 8 and 128, inclusive.\nPlease choose again.");
+        }
+    while (lengthPass < 8 || lengthPass > 128);
+
+    </script>
+
+    <h1>Password Generator</h1>
+    <div class="containter">
+        <div id="password">
+            <h2>Generate a Password</h2>
+            <hr>
+            <div id="innerBox">
+                <label>Your Secure Password</label>
+            </div>
+            <hr>
+            <button type="button" id="red">Generate Password</button>
+            <button type="button" id="gray">Copy to Clipboard</button>
+        </div>
+    </div>
+
+</body>
+</html>
