@@ -59,8 +59,6 @@ while (specialChar === false && includeNums === false && lowerCase === false && 
 
 //arrays for each character type
 
-function generate () {
-
 
 
 var charLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x" ,"y", "z"];
@@ -70,62 +68,73 @@ var stringSC = "!@#$%^&*()";
 var charSpecial = stringSC.split("");
 var charList = [];
 
-if (specialChar) {
+ if  (specialChar){
     var userSC = [charSpecial];
     console.log(userSC);
 }
+else {
+    var userSC = [];
+}
 
-if (includeNums) {
+ if (includeNums) {
     var userN = [charNums];
     console.log(userN);
 }
-//else {
-//    userN = [];
-//}
+else {
+    var userN = [];
+}
 
 if (lowerCase) {
     var userL = [charLower];
     console.log(userL);
 }
-//else {
-//    userL = [];
-//}
+else {
+    var userL = [];
+}
 
-if(upperCase) {
+if (upperCase) {
     var userU = [charUpper];
     console.log(userU);
 }
+else {
+    var userU = [];
+}
 
-
-
-charList = [userSC + userN + userL + userU];
+var charList = userSC.concat(userN, userL, userU).flat();
 console.log(charList);
 
-//function generate () - target red addEventListener("click", function() {
-    //execute generate function
-//  })
-  //  if ()
+ var generatedPass = [];
+
+ for (var i = 0; i < lengthPass; i++) {
+      var randomIndex = Math.floor((Math.random() * charList.length) + 1);
+        console.log(randomIndex);
+    var random =  charList[randomIndex];
+    console.log(random);
+    generatedPass.push(random);
+    } 
+
+    console.log(generatedPass);
+
+    var redButton = document.getElementById("red");
+       redButton.addEventListener("click", function() {
+       
+    });
+    //display into div, turn array into string
+//function generate () {
+
+   // document.getElementById
     
-    //make arrays for each char type
-    //inside an IF statement : make an array for user selected values
-    //4 if statements
-
-    //var charList = [];
-    var randChar;
-    //generated pass variable - initialized with [empty]
-    
-    for (var i = 0; i < lengthPass; i++) {
-        var randChar = Math.floor((Math.random() * lengthPass.length) + 1);
-        console.log(randChar);
-    } // insisde for loop - array for user sel values[randChar]
-
-
+   
 
 //pick character by randChar (index#)
 //
+//} var redButton = document.getElementById("red");
+//   redButton.addEventListener("click", function() {
+//   execute a generate function??
+// });
 //}
-
-}
+//  })
+  //
 
 
 
