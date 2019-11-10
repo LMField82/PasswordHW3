@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", function(event) {
 
     //variables
     var lengthPass; 
@@ -5,7 +6,17 @@
     var includeNums;
     var lowerCase; 
     var upperCase;
-    
+
+
+    //arrays for each character type
+    var charLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x" ,"y", "z"];
+    var charUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+    var charNums = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+    var stringSC = "!@#$%^&*()";
+    var charSpecial = stringSC.split("");
+    var charList = [];
+
+
     //conditionals
     //choosing the number of characters between 8 and 128
    do {
@@ -57,17 +68,8 @@ do {
 }
 while (specialChar === false && includeNums === false && lowerCase === false && upperCase === false);
 
-//arrays for each character type
 
-
-
-var charLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x" ,"y", "z"];
-var charUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-var charNums = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-var stringSC = "!@#$%^&*()";
-var charSpecial = stringSC.split("");
-var charList = [];
-
+//whether user included or not included each character type
  if  (specialChar){
     var userSC = [charSpecial];
     console.log(userSC);
@@ -99,43 +101,43 @@ if (upperCase) {
 else {
     var userU = [];
 }
-
+//make list of the selected character types
 var charList = userSC.concat(userN, userL, userU).flat();
 console.log(charList);
 
- var generatedPass = [];
+//generate password
+ var generatedPass = "";
 
  for (var i = 0; i < lengthPass; i++) {
-      var randomIndex = Math.floor((Math.random() * charList.length) + 1);
+      var randomIndex = Math.floor(Math.random() * charList.length);
         console.log(randomIndex);
     var random =  charList[randomIndex];
     console.log(random);
-    generatedPass.push(random);
+    generatedPass += random;
+
     } 
 
     console.log(generatedPass);
 
-    var redButton = document.getElementById("red");
-       redButton.addEventListener("click", function() {
+    document.getElementById("red").addEventListener("click", function() {
+        console.log("you clicked button");
+
+        document.getElementById("innerBox").innerHTML = generatedPass; 
+        
+        
+    });
+//to copy password to clipboard
+   document.getElementById("gray").addEventListener("click", function() {
+    var text = document.getElementById("innerBox").innerText;
+    var node = document.createElement("textarea");
+    document.body.appendChild(node);
+    node.value = text;
+    node.select("");
+    document.execCommand("copy");
+    document.body.removeChild(node);
+   })
+       
        
     });
-    //display into div, turn array into string
-//function generate () {
-
-   // document.getElementById
-    
-   
-
-//pick character by randChar (index#)
-//
-//} var redButton = document.getElementById("red");
-//   redButton.addEventListener("click", function() {
-//   execute a generate function??
-// });
-//}
-//  })
-  //
-
-
 
   
